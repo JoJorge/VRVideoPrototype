@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+    </head>
+    <body>
+    <a-scene>
+        <a-assets>            
+            <video id="HowFun" autoplay loop="false" src="HowFun.mp4"></video>
+            <!--audio id="click-sound" src="audio/mouseclick.wav"></audio>
+            <!-- Images. -->
+            <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+            <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+            <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+            <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+            <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+            <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        </a-assets>
+        <!-- 360-degree image. -->
+        <a-sky id="image-360" radius="10" src="#city" scale="-2 2 2"></a-sky>
+        <a-video 
+            geometry="primitive: cylinder; openEnded: true; thetaLength: 90; thetaStart: 135; radius: 5; height: 5;" 
+            src="#HowFun" position="0 1.6 0" scale="-1 1 1"></a-video>
+        <a-entity video-controls="src:#HowFun" position="0 0.3 -2"></a-entity>
+        
+        <!-- Camera + Cursor. -->
+        <a-camera>
+
+            <a-cursor id="cursor">
+                <a-animation begin="click" easing="ease-in" attribute="scale"
+                             fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+                <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                             from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+            </a-cursor>
+        </a-camera>
+    </a-scene>
+  </body>
+</html>
